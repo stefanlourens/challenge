@@ -1,7 +1,6 @@
 package org.sl.challenge
 
 import io.Source
-
 import java.io.File
 
 /**
@@ -37,7 +36,7 @@ object Challenge {
                     case "MIN" => numbers.min
                     case "MAX" => numbers.max
                     case "AVERAGE" => numbers.sum / numbers.size
-                    case _ => new AssertionError(s"No implementation for command $command")
+                    case _ => new AssertionError(s"Invalid command '$command'")
                   }
 
                   println(s"$command $result")
@@ -47,12 +46,9 @@ object Challenge {
                 case _: NumberFormatException => println("Invalid input number encountered, line ignored")
               }
 
-
             } else println("Invalid format, line ignored")
-
           }
         }
-
 
       } else println(s"Could not find file '$filePath'")
     } else println("Usage: run /path/to/file")
